@@ -32,7 +32,7 @@ section {
   margin-bottom: 40px;
 }
 
-/* Animación Bounce */
+/* Bounce Animation */
 @keyframes bounce {
   0% { transform: translateY(0); }
   30% { transform: translateY(-10px); }
@@ -218,7 +218,7 @@ section {
   transition: box-shadow 0.3s ease;
 }
 .category:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 .category-header {
   display: flex;
@@ -238,7 +238,7 @@ section {
   font-size: 1.8rem;
 }
 
-/* Contenedor de productos: scroll horizontal, ajustado a 3 productos de 300px + gaps */
+/* Contenedor de productos: scroll horizontal; ancho ajustado a 3 productos */
 .category-products {
   display: flex;
   flex-wrap: nowrap;
@@ -282,12 +282,17 @@ section {
   font-size: 1rem;
 }
 
-/* For categoría "Cuidados y Amor", asegurar que todos los productos tengan la misma tipografía */
-.category[data-category="cuidados"] .product-block .price,
-.category[data-category="cuidados"] .product-block .btn-shop {
-  font-family: var(--font-primary);
-  font-size: 1rem;
-  font-weight: bold;
+/* Ajuste para dispositivos móviles: mostrar 1 producto por categoría */
+@media (max-width: 600px) {
+  .category-products {
+    width: 100%;
+    gap: 10px;
+    /* Mantener scroll horizontal */
+    flex-wrap: nowrap;
+  }
+  .product-block {
+    flex: 0 0 100%;
+  }
 }
 
 /* Carrusel de Productos */
