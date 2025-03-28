@@ -245,7 +245,7 @@ section {
   overflow-x: auto;
   gap: 10px;
   margin: 0 auto;
-  width: calc(300px * 3 + 10px * 2); /* 920px */
+  width: calc(200px * 3 + 10px * 2); /* 920px */
   scrollbar-width: thin;
   scrollbar-color: var(--color3) var(--color4);
 }
