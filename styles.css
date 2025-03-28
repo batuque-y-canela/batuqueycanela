@@ -1,0 +1,561 @@
+/* ----------------------------------------------------------------------
+   Variables de Colores (convertidos a HEX o RGB):
+   - Color 1 (predominante): CMYK (0, 96, 74, 0) ≈ #FF0A42
+   - Color 2 (predominante): rgb(70,185,176)
+   - Color 3: CMYK (0, 46, 89, 0) ≈ #FF8A1C
+   - Color 4: CMYK (0, 0, 0, 0) = #FFFFFF
+---------------------------------------------------------------------- */
+:root {
+    --color1: #FF0A42;
+    --color2: rgb(70,185,176);
+    --color3: #FF8A1C;
+    --color4: #FFFFFF;
+    
+    /* Tipografías principales */
+    --font-primary: 'Montserrat', Arial, sans-serif;
+    /* Tipografía desenfadada y redondeada para secciones especiales */
+    --font-playful: 'Fredoka One', cursive;
+  }
+  
+  /* Fondo de la página en blanco y reset básico */
+  body {
+    font-family: var(--font-primary);
+    background-color: var(--color4);
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Espaciado entre secciones */
+  section {
+    margin-bottom: 40px;
+  }
+  
+  /* Animación Bounce para Banner y Footer */
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-10px); }
+    50% { transform: translateY(0); }
+    70% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+  }
+  .bounce {
+    animation: bounce 0.5s ease;
+  }
+  
+  /* Header / Banner */
+  /* Se conserva el diseño original con fondo adaptado */
+  .banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: url('fotos/banner.jpg') center/cover no-repeat, var(--color1);
+    color: var(--color4);
+  }
+  
+  /* Distribución del contenido en el banner */
+  .banner-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .logo img {
+    max-width: 150px;
+  }
+  .welcome {
+    text-align: right;
+    max-width: 600px;
+  }
+  .welcome h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  .welcome p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  /* Menú de Subcategorías al pie del banner */
+  .sub-menu {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+  }
+  .sub-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+  }
+  .sub-menu ul li a {
+    text-decoration: none;
+    color: var(--color4);
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  .sub-menu ul li a:hover {
+    color: var(--color3);
+  }
+  
+  /* Sección de Introducción */
+  .introduction {
+    padding: 40px 20px;
+    background: var(--color4);
+    text-align: center;
+  }
+  .introduction h2 {
+    font-family: var(--font-playful);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  .introduction p {
+    font-family: var(--font-playful);
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  /* Logo decorativo con opacidad del 20% y tamaño 350px por 350px */
+  .intro-logo {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .intro-logo img {
+    width: 350px;
+    height: 350px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    opacity: 1; /* 100% opacidad */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .intro-logo img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Sección de Información: 3 apartados horizontales */
+  .info-sections {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background: var(--color4);
+  }
+  .info-box {
+    position: relative;
+    flex: 1;
+    min-width: 280px;
+    max-width: 32%;
+    background: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .info-text {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    font-family: var(--font-playful);
+  }
+  .info-text h2 {
+    font-size: 1.8rem;
+    margin: 10px 0;
+  }
+  .info-text p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  .info-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  .info-box:hover .info-image,
+  .info-box:focus .info-image {
+    opacity: 1;
+  }
+  .info-box:hover .info-text,
+  .info-box:focus .info-text {
+    opacity: 0;
+  }
+  
+  /* Sección de Categorías Dinámicas */
+  .dynamic-categories {
+    padding: 40px 20px;
+    background: var(--color4);
+  }
+  
+  .dynamic-categories .section-title {
+    font-family: var(--font-playful);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .category {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .category:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  .category-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #f0f0f0;
+  }
+  
+  .category-header img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .category-header h3 {
+    margin: 0;
+    font-family: var(--font-playful);
+    font-size: 1.8rem;
+  }
+  
+  /* Aquí se habilita el scroll vertical dentro de cada bloque de categoría */
+  .category-products {
+    max-height: 500px; /* Ajusta este valor según el tamaño deseado */
+    overflow-y: auto;
+    transition: max-height 0.5s ease;
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .product-block {
+    flex: 1 1 calc(33.33% - 20px);
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-block:hover {
+    transform: scale(1.05);
+  }
+  
+  .product-block img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .product-block h4 {
+    margin: 10px 0 5px;
+    font-family: var(--font-playful);
+    font-size: 1.4rem;
+  }
+  
+  .product-block .price {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  
+  @media (max-width: 600px) {
+    .category-products {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .product-block {
+      flex: 1 1 100%;
+    }
+  }
+  
+  
+  
+  /* Carrusel de Productos */
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+    background: var(--color2);
+  }
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-item {
+    min-width: 100%;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .carousel-item img {
+    /* Fotografías en relación 1:1 de 300px */
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .carousel-item:hover img {
+    transform: scale(1.05);
+  }
+  .carousel-item h2 {
+    margin: 10px 0 5px;
+  }
+  .carousel-item .price {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .btn-shop {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--color1);
+    color: var(--color4);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  .btn-shop:hover {
+    background: var(--color3);
+  }
+  /* Botones del Carrusel */
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+  .carousel-control.prev {
+    left: 10px;
+  }
+  .carousel-control.next {
+    right: 10px;
+  }
+  
+  /* Blog Section */
+  .blog-section {
+    padding: 40px 20px;
+    background: var(--color4);
+    text-align: center;
+  }
+  .blog-title {
+    font-family: var(--font-playful);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  .blog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .blog-block {
+    background: #f7f7f7;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .blog-block:hover {
+    transform: scale(1.03);
+  }
+  .blog-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  .blog-block h3 {
+    font-family: var(--font-playful);
+    font-size: 1.8rem;
+    margin: 10px 0;
+  }
+  .blog-excerpt {
+    padding: 0 10px 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    font-size: 1rem;
+  }
+  .blog-block.expanded .blog-excerpt {
+    max-height: 200px; /* Ajusta según el contenido */
+  }
+  
+  /* Sección de Contenido */
+  .content {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1s forwards;
+  }
+  @keyframes fadeInAnimation {
+    to { opacity: 1; }
+  }
+  
+  /* Formulario de Contacto */
+  .contact {
+    padding: 40px 20px;
+    background: var(--color1);
+    color: var(--color4);
+    text-align: center;
+  }
+  .contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact label {
+    margin: 10px 0 5px;
+    text-align: left;
+  }
+  .contact input,
+  .contact textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  .contact button {
+    padding: 10px;
+    background: var(--color2);
+    color: var(--color4);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .contact button:hover {
+    background: var(--color3);
+  }
+  
+  /* Footer */
+  footer {
+    background: var(--color2);
+    padding: 20px;
+    color: var(--color4);
+    position: relative;
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-content p {
+    margin-bottom: 10px;
+  }
+  /* Menú de Subcategorías en Footer */
+  footer .sub-menu ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+  footer .sub-menu ul li a {
+    text-decoration: none;
+    color: var(--color4);
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  footer .sub-menu ul li a:hover {
+    color: var(--color3);
+  }
+  .social-icons a {
+    margin: 0 5px;
+    display: inline-block;
+  }
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+  }
+  /* Botón de WhatsApp */
+  .whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  .whatsapp-button:hover {
+    transform: scale(1.1);
+  }
+  .whatsapp-button img {
+    width: 30px;
+    height: 30px;
+  }
+  /* Responsividad en cualquier dispositivo y sistema operativo */
+  @media (max-width: 768px) {
+    .banner-main {
+      flex-direction: column;
+      text-align: center;
+    }
+    .welcome {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .sub-menu ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-content {
+      flex-direction: column;
+    }
+    .social-icons {
+      margin-top: 10px;
+    }
+    /* En dispositivos móviles, los info-box se apilan verticalmente */
+    .info-sections {
+      flex-direction: column;
+    }
+  }
+  
