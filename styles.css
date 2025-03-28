@@ -238,21 +238,21 @@ section {
   font-size: 1.8rem;
 }
 
-/* Contenedor de productos: scroll horizontal; ancho ajustado a 3 productos */
+/* Contenedor de productos: scroll horizontal ajustado a 3 productos de 200px + gaps */
 .category-products {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   gap: 10px;
   margin: 0 auto;
-  width: calc(200px * 3 + 10px * 2); /* 920px */
+  width: calc(200px * 3 + 10px * 2); /* 200*3 + 2*10 = 620px */
   scrollbar-width: thin;
   scrollbar-color: var(--color3) var(--color4);
 }
 
-/* Producto dentro de la categoría */
+/* Producto dentro de la categoría (ahora 200px de ancho) */
 .product-block {
-  flex: 0 0 300px;
+  flex: 0 0 200px;
   background: #fff;
   padding: 10px;
   border: 1px solid #eee;
@@ -287,7 +287,6 @@ section {
   .category-products {
     width: 100%;
     gap: 10px;
-    /* Mantener scroll horizontal */
     flex-wrap: nowrap;
   }
   .product-block {
